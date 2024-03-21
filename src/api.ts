@@ -13,7 +13,7 @@ app.use(express.text({ type: 'text/html' }));
 // Healthcheck endpoint
 app.get('/', (req, res) => {
   console.log('new request', req.headers['x-forwarded-for'], req.ip);
-  res.status(200).send({ status: 'ok' });
+  res.status(200).send({ status: 'ok 1' });
 });
 
 const api = express.Router();
