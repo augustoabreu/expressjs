@@ -3,6 +3,7 @@ import cors from 'cors';
 
 export const app = express();
 
+app.set('trust proxy', true)
 app.use(cors({ origin: true }));
 
 app.use(express.json());
@@ -11,6 +12,7 @@ app.use(express.text({ type: 'text/html' }));
 
 // Healthcheck endpoint
 app.get('/', (req, res) => {
+  console.log('new request', req.headers['x-forwarded-for'], req.ip);
   res.status(200).send({ status: 'ok' });
 });
 
